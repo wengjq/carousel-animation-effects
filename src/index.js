@@ -1,5 +1,6 @@
-/* global document:true */
+/* global document: true */
 /* eslint no-undef: "error" */
+/* eslint no-unused-vars: ["error", { "varsIgnorePattern": "[iI]nstance" }] */
 import './styles.css';
 import './animation.css';
 import Carousel from './carousel';
@@ -20,5 +21,3 @@ const carouselInstance = new Carousel(carouselContainer, {
   // 9：水平魔方旋转, 10：垂直魔方旋转, 11： 聚焦, 12：分区聚焦,
   // 13： 顺时针风车, 14：逆时针风车
 });
-
-carouselInstance();

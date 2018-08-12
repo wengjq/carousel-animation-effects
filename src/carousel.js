@@ -24,9 +24,6 @@ export default class Carousel {
       throw new Error('Your browser does not support css3');
     }
 
-    this.el = el; // root element
-    this.options = extend({}, options);
-
     const defaults = {
       autoPlay: true, // 自动播放
       currentIndex: 0, // 开始的帧数
@@ -40,13 +37,15 @@ export default class Carousel {
       dotsClass: 'carousel-dots',
     };
 
-    for (var name in defaults) {
+    for (const name in defaults) {
       if (Object.prototype.hasOwnProperty.call(defaults, name)) {
         if (!(name in options)) {
           options[name] = defaults[name];
         }
       }
     }
+    this.el = el; // root element
+    this.options = extend({}, options);
 
     this.container = el.querySelector('.carousel-wrap');
     this.items = this.container.children;
@@ -95,7 +94,7 @@ export default class Carousel {
 
   initCarouselDom() {
     let item;
-    const { effectIndex } = this.effectIndex;
+    const { effectIndex } = this;
 
     css(this.container, 'height', this.itemMaxHeight);
     this.container.classList.add(`billboard${effectIndex}`, 'billboard');
@@ -181,7 +180,7 @@ export default class Carousel {
     }
 
     if (effectIndex === 9 || effectIndex === 10 || effectIndex === 12
-       || effectIndex === 13 || effectIndex === 14) {
+      || effectIndex === 13 || effectIndex === 14) {
       this.items = this.container.children;
       this.itemsLen = this.items.length;
     }
@@ -206,8 +205,7 @@ export default class Carousel {
       }
 
       ul.addEventListener('click', (e) => {
-        const { target } = e.target;
-
+        let { target } = e;
         while (target !== ul) {
           if (target.tagName.toLowerCase() === 'li') {
             const index = parseInt(target.getAttribute('index'), 10);
@@ -215,6 +213,7 @@ export default class Carousel {
             this.goTo(index);
             break;
           }
+          target = target.parentNode;
         }
       }, false);
 
