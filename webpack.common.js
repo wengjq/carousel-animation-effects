@@ -2,8 +2,11 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const devMode = process.argv.indexOf('-p') === -1;
 
 module.exports = {
+  mode: process.env.NODE_ENV,
   entry: {
     index: './src/index.js',
   },
@@ -24,10 +27,10 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          'style-loader',
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
-        ]
+        ],
       },
       {
         test: /\.(png|svg|jpg|gif)$/,

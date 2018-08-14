@@ -122,3 +122,7 @@
 .carousel-next:before {
     content: '\2192';
 }
+
+.carousel-switch {
+    margin: 50px 50px 50px 100px;
+}

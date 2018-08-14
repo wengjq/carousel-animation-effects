@@ -1,6 +1,5 @@
-@charset "utf-8";
 .carousel-container {
-    /*GPU加速*/
+    /* GPU加速 */
     transform: rotateX(0deg) rotateY(0deg) translate3d(0, 0, 0);
 }
 

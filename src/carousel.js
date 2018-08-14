@@ -197,8 +197,11 @@ export default class Carousel {
         const li = document.createElement('li');
 
         li.setAttribute('index', i);
+
         if (this.currentIndex === i) {
           li.classList.add('carousel-active');
+        } else {
+          li.classList.remove('carousel-active');
         }
 
         ul.appendChild(li);
