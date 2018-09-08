@@ -20,7 +20,7 @@ module.exports = {
       title: 'index',
       template: './src/index.html',
       inject: 'body',
-    })
+    }),
   ],
   module: {
     rules: [
@@ -36,14 +36,13 @@ module.exports = {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
           'file-loader',
-        ]
+        ],
       },
       {
         test: /\.js$/,
         use: 'babel-loader',
         include: path.resolve(__dirname, 'src'),
-        
-      }
-    ]
-  }
+      },
+    ],
+  },
 };
