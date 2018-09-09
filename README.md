@@ -1,8 +1,19 @@
 # carousel-animation-effects
 一个轮播动画特效的库
 
+### Demo
+
+[demo](https://wengjq.github.io/GithubPage/carousel-animation-effects/)
+
+### npm
+
+npm install carousel-animation-effects -D
+
 ### Usage
 ```js
+import Carousel from 'carousel-animation-effects'
+import 'carousel-animation-effects/dist/animation.min.css';
+
 <div id="carousel-container" class="carousel-container">
     <div id="carousel-wrap" class="carousel-wrap">
         <div class="carousel-item">
@@ -33,6 +44,21 @@ let carouselInstance = new Carousel(document.getElementById('carousel-container'
   // 9：水平魔方旋转, 10：垂直魔方旋转, 11：聚焦, 12：分区聚焦,
   // 13：顺时针风车, 14：逆时针风车
 });
+```
+
+### umd
+
+
+
+```js
+<link type="text/css" href="animation.min.css" rel="stylesheet">
+<script type="text/javascript" src="carousel.min.js"></script>
+
+<script>
+  new Carousel(node, {
+    ...
+  });
+</script>
 ```
 
 ## API

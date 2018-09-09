@@ -9,7 +9,7 @@ gulp.task('css', () => {
   return gulp.src('src/animation.css')
     .pipe(minifyCss())
     .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest(''));
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('script', () => {
@@ -22,7 +22,7 @@ gulp.task('script', () => {
     ],
   }).then((bundle) => {
     return bundle.write({
-      file: 'carousel.js',
+      file: 'dist/carousel.js',
       format: 'umd',
       name: 'carousel',
     });
@@ -33,7 +33,7 @@ gulp.task('uglify-js', () => {
   return gulp.src('carousel.js')
     .pipe(uglify())
     .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest(''));
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('default', ['script'], () => {
